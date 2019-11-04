@@ -1,0 +1,52 @@
+using System;
+
+namespace ReIntegral
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            _ = new ReIntegral01();
+        }
+    }
+    //∮[0,1]∮[0,1] 1.0/(1.0+x+y+x*y)dxdy
+    class ReIntegral01
+    {
+        double theta1;//angle1
+        double theta2;//angle2
+        double qn1;//qn1
+        double qn2;//qn2
+        double ih1;//integral1
+        double ih2;//integral2
+        double da1;//delta a1
+        double da2;//delta a2
+
+
+        public ReIntegral01()
+        {
+            da1 = 1.0e-3;
+            da2 = 1.0e-3;
+            for (qn2 = 0.0; qn2 < 1.0;)
+            {
+
+                ih1 = 0.0;
+                for (qn1 = 0.0; qn1 < 1.0;)
+                {
+
+                    theta1 = Math.Atan(Function(qn1, qn2));
+                    qn1 += da1 * Math.Cos(theta1);
+                    ih1 += da1 * Math.Sin(theta1);
+                }
+
+                theta2 = Math.Atan(ih1);
+                qn2 += da2 * Math.Cos(theta2);
+                ih2 += da2 * Math.Sin(theta2);
+                Console.Write("{0} {1} {2} {3}\n", qn1, qn2, ih1, ih2);
+            }
+        }
+        public double Function(double x, double y)
+        {
+            return 1.0 / (1.0 + x + y + x * y);
+        }
+    }
+}
