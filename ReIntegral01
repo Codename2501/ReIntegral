@@ -10,22 +10,22 @@ namespace ReIntegral
         }
     }
     //∮[0,1]∮[0,1] 1.0/(1.0+x+y+x*y)dxdy
+    //ih2 is the value of the multiple integral
     class ReIntegral01
     {
-        double theta1;//angle1
-        double theta2;//angle2
-        double qn1;//qn1
-        double qn2;//qn2
-        double ih1;//integral1
-        double ih2;//integral2
-        double da1;//delta a1
-        double da2;//delta a2
-
-
         public ReIntegral01()
         {
+            double theta1;//angle1
+            double theta2;//angle2
+            double qn1;//qn1
+            double qn2;//qn2
+            double ih1;//integral1
+            double ih2;//integral2
+            double da1;//delta a1
+            double da2;//delta a2
             da1 = 1.0e-3;
             da2 = 1.0e-3;
+            ih2 = 0.0;
             for (qn2 = 0.0; qn2 < 1.0;)
             {
 
